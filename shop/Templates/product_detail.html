@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+
+        #popup {
+            display: none;
+            position: fixed;
+            width: 60%;
+            height: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #333;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+
+    <div class="product" onclick="openPopup('Product 1', 'Description for Product 1', 19.99)">
+        <h2>Product 1</h2>
+        <p>Description: Description for Product 1</p>
+        <p>Price: $19.99</p>
+    </div>
+
+    <div class="product" onclick="openPopup('Product 2', 'Description for Product 2', 29.99)">
+        <h2>Product 2</h2>
+        <p>Description: Description for Product 2</p>
+        <p>Price: $29.99</p>
+    </div>
+
+    <div id="popup">
+        <h2 id="popupTitle"></h2>
+        <p id="popupDescription"></p>
+        <p id="popupPrice"></p>
+        <p>Clic to another detisl plea</p>
+        <ol>
+          <li>ram</li>
+          <li>Rom</li>
+          <li>camera</li>
+
+        </ol>
+        <img src="https://picsum.photos/200/300" height="80px" width="80px">
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <div id="overlay" onclick="closePopup()"></div>
+
+    <script>
+        function openPopup(name, description, price) {
+            document.getElementById('popupTitle').innerHTML = name;
+            document.getElementById('popupDescription').innerHTML = 'Description: ' + description;
+            document.getElementById('popupPrice').innerHTML = 'Price: $' + price;
+
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

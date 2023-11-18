@@ -99,94 +99,98 @@
 
 
        <!-- start Product Card  -->
-       <div class="container">
+
+      <div class="container">
+       <a href="{% url 'product' %}">
         <div class="row">
+          {% for x in img %}
           <div class="col-md-4">
             <div class="card">
-              <img src="{% static '/image/photo1.jpg' %}" class="card-img-top" alt="Image 1">
+              <img src="{{x.image.url}}" class="card-img-top" alt="Image 1">
               <div class="card-body">
-                <h5 class="card-title">Image 1</h5>
-                <p class="card-text">Description of Image 1.</p>
+                <h4 class="card-text">{{x.caption}}</h4>
               </div>
             </div>
+       </a>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo2.jpg' %}" class="card-img-top" alt="Image 2">
-              <div class="card-body">
-                <h5 class="card-title">Image 2</h5>
-                <p class="card-text">Description of Image 2.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo3.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Add more cards as needed -->
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo4.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo1.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo2.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo3.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo4.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="{% static '/image/photo1.jpg' %}" class="card-img-top" alt="Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Image 3</h5>
-                <p class="card-text">Description of Image 3.</p>
-              </div>
-            </div>
-          </div>
+
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo2.jpg' %}" class="card-img-top" alt="Image 2">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 2</h5>-->
+<!--                <p class="card-text">Description of Image 2.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo3.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; Add more cards as needed &ndash;&gt;-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo4.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo1.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo2.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo3.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo4.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="card">-->
+<!--              <img src="{% static '/image/photo1.jpg' %}" class="card-img-top" alt="Image 3">-->
+<!--              <div class="card-body">-->
+<!--                <h5 class="card-title">Image 3</h5>-->
+<!--                <p class="card-text">Description of Image 3.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+           {% endfor %}
         </div>
       </div>
-
+          <!-- End Product Card  -->
           <!-- End Product Card  -->
 
-
-{% endblock %}
+{% endblock content %}

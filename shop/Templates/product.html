@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+ <style>
+
+        #popup {
+            display: none;
+            position: fixed;
+            width: 60%;
+            height: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #333;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                  <img src="{% static 'image/iphone14.jpg' %}"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>APPLE iPhone 14 (Blue, 128 GB)</h5>
+                <div class="d-flex flex-row">
+                  <div class="text-danger mb-1 me-2">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <span>310</span>
+                </div>
+<!--                <div class="mt-1 mb-0 text-muted small">-->
+<!--                  <span>100% cotton</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Light weight</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Best finish<br /></span>-->
+<!--                </div>-->
+<!--                <div class="mb-2 text-muted small">-->
+<!--                  <span>Unique design</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>For men</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Casual<br /></span>-->
+<!--                </div>-->
+                 <ul>
+                   <li>128 GB ROM</li>
+                   <li>15.49 cm (6.1 inch) Super Retina XDR Display</li>
+                   <li>12MP + 12MP | 12MP Front Camera</li>
+                   <li>A15 Bionic Chip, 6 Core Processor/li>
+                   <li>5G, 4G VoLTE, 4G LTE, UMTS, GSM</li>
+                   <li>1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories</li>
+                 </ul>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">₹ 60,999</h4>
+                  <span class="text-danger"><s>₹ 69,900</s></span>
+                </div>
+                <h6 class="text-success">Free shipping</h6>
+                <h6 class="text-success">12% Off</h6>
+                <p>No Cost EMI from ₹6,889/month</p>
+                <div class="d-flex flex-column mt-4">
+                  <button class="btn btn-primary btn-sm" type="button" onclick="openPopup('Product 1', 'Description for Product 1', 19.99)">Details</button>
+                  <div id="popup">
+                   <h2 id="popupTitle"></h2>
+                   <p id="popupDescription"></p>
+                   <p id="popupPrice"></p>
+                  <p>Clic to another detisl plea</p>
+                    <ol>
+                      <li>ram</li>
+                       <li>Rom</li>
+                      <li>camera</li>
+
+                      </ol>
+                     <img src="https://picsum.photos/200/300" height="80px" width="80px">
+                      <button onclick="closePopup()">Close</button>
+                      </div>
+
+                     <div id="overlay" onclick="closePopup()"></div>
+                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                    Add to wishlist
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--       2 Page -->
+      <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                  <img src="{% static 'image/iphone14.jpg' %}"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>APPLE iPhone 14 (Blue, 128 GB)</h5>
+                <div class="d-flex flex-row">
+                  <div class="text-danger mb-1 me-2">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <span>310</span>
+                </div>
+<!--                <div class="mt-1 mb-0 text-muted small">-->
+<!--                  <span>100% cotton</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Light weight</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Best finish<br /></span>-->
+<!--                </div>-->
+<!--                <div class="mb-2 text-muted small">-->
+<!--                  <span>Unique design</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>For men</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Casual<br /></span>-->
+<!--                </div>-->
+                 <ul>
+                   <li>128 GB ROM</li>
+                   <li>15.49 cm (6.1 inch) Super Retina XDR Display</li>
+                   <li>12MP + 12MP | 12MP Front Camera</li>
+<!--                   <li>A15 Bionic Chip, 6 Core Processor/li>-->
+<!--                   <li>5G, 4G VoLTE, 4G LTE, UMTS, GSM</li>-->
+                   <li>1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories</li>
+                 </ul>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">₹ 60,999</h4>
+                  <span class="text-danger"><s>₹ 69,900</s></span>
+                </div>
+                <h6 class="text-success">Free shipping</h6>
+                <h6 class="text-success">12% Off</h6>
+
+                <div class="d-flex flex-column mt-4">
+                  <button class="btn btn-primary btn-sm" type="button">Details</button>
+                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                    Add to wishlist
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--      3 Page -->
+      <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                  <img src="{% static 'image/iphone14.jpg' %}"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>APPLE iPhone 14 (Blue, 128 GB)</h5>
+                <div class="d-flex flex-row">
+                  <div class="text-danger mb-1 me-2">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <span>310</span>
+                </div>
+<!--                <div class="mt-1 mb-0 text-muted small">-->
+<!--                  <span>100% cotton</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Light weight</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Best finish<br /></span>-->
+<!--                </div>-->
+<!--                <div class="mb-2 text-muted small">-->
+<!--                  <span>Unique design</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>For men</span>-->
+<!--                  <span class="text-primary"> • </span>-->
+<!--                  <span>Casual<br /></span>-->
+<!--                </div>-->
+                 <ul>
+                   <li>128 GB ROM</li>
+                   <li>15.49 cm (6.1 inch) Super Retina XDR Display</li>
+                   <li>12MP + 12MP | 12MP Front Camera</li>
+<!--                   <li>A15 Bionic Chip, 6 Core Processor/li>-->
+<!--                   <li>5G, 4G VoLTE, 4G LTE, UMTS, GSM</li>-->
+                   <li>1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories</li>
+                 </ul>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">₹ 60,999</h4>
+                  <span class="text-danger"><s>₹ 69,900</s></span>
+                </div>
+                <h6 class="text-success">Free shipping</h6>
+                <h6 class="text-success">12% Off</h6>
+
+                <div class="d-flex flex-column mt-4">
+                  <button class="btn btn-primary btn-sm" type="button">Details</button>
+                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                    Add to wishlist
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--    4 Page -->
+
+</section>
+
+ <script>
+        function openPopup(name, description, price) {
+            document.getElementById('popupTitle').innerHTML = name;
+            document.getElementById('popupDescription').innerHTML = 'Description: ' + description;
+            document.getElementById('popupPrice').innerHTML = 'Price: $' + price;
+
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+
+
+{% endblock %}

@@ -16,13 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from myapp import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.base,name="base"),
     path('login/',views.login, name='login'),
     path('index/',views.index, name='index'),
-    path('register/',views.register, name='register')
+    path('register/',views.register, name='register'),
+    path('photo/', views.photo, name='photo'),
+    path('product/', views.product, name='product'),
+    path('detail/',views.detail,name="detail"),
+    path('showphoto/',views.showphoto,name="showphoto"),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

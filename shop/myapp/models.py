@@ -10,3 +10,10 @@ class employee(models.Model):
     class Meta:
         db_table = "employee"
 
+
+class UploadImage(models.Model):
+    caption = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images')
+
+    def __str__(self):
+        return self.caption
